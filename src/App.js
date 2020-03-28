@@ -1,26 +1,34 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component{
+  constructor(){
+    super();
+    this.state = {
+      monsters: [
+        {
+          name: 'Ghatotkach',
+          id: 'm1'
+        },
+        {
+          name: 'Mahishashur',
+          id: 'm2'
+        },
+        {
+          name: 'Hiranyakashyap',
+          id: 'm3'
+        }
+      ]
+    };
+  }
   render(){
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hey this is Joy using class and this is my first react app 
-            <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        {
+          this.state.monsters.map(
+          monster => (<h1 key = {monster.id}>{monster.name}</h1>)
+          )
+        }
       </div>
     );
   }
